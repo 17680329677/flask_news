@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/static/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>今日头条</title>
+</head>
+<body>
+    <div id="header">
+        <div id="inner-header">
+            <h1>今日头条</h1>
+        </div>
+    </div>
+
+    <div id="main">
+        <h2>当前天气</h2>
+        <form>
+            <input type="text" name="city" placeholder="天气查询">
+            <input type="submit" value="Submit">
+        </form>
+
+        <p>城市：<b>{{ weather.city }}</b></p>
+        <p>{{ weather.description }} |{{ weather.temperature }}&#8451;</p>
+
+        <form>
+            <input type="text" name="publication" placeholder="搜索">
+            <input type="submit" value="Submit">
+            <hr>
+            {% for article in articles %}
+                <b><a href="{{ article.link }}">{{ article.title }}</a></b><br>
+                <i>{{ article.published }}</i><br>
+                <p>{{ article.summary }}</p>
+                <hr>
+            {% endfor %}
+
+        </form>
+    </div>
+</body>
+</html>
